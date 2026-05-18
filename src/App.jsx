@@ -3,75 +3,67 @@ import { useState, useEffect, useRef } from "react";
 /* ─── data ─── */
 const portfolio = {
   name: "Subrat Tripathi",
-  title: "Software Engineer",
-  company: "To The New",
-  location: "Noida, Uttar Pradesh, India",
-  email: "Kumarsainigagan@gmail.com",
-  linkedin: "https://www.linkedin.com/in/gagan-kumar-saini/",
-  summary:"Results-driven Software Engineer with a strong work ethic and a versatile technical skill set. Experienced in mobile application development, AI-powered solutions, and modern development tools. Highly motivated, quick to adapt, and committed to building scalable, user-focused products that contribute meaningfully to organizational goals.",
+  title: "Data Analyst",
+  company: "MKT Softwares Pvt. Ltd.",
+  location: "India",
+  email: "subratcodes9@gmail.com",
+  linkedin: "https://www.linkedin.com/in/subrattripathi",
+  summary:
+    "Data Analyst and Data Scientist enthusiast with experience in Python, SQL, Power BI, and machine learning for data analysis, dashboard reporting, and predictive modeling. Skilled in DAX, ETL pipelines, KPI tracking, data visualization, and RAG-based AI applications using LangChain and Streamlit.",
   skills: [
-  "Android Development",
-  "Kotlin",
-  "Jetpack Components",
-  "MVVM Architecture",
-  "OpenAI API Integration",
-  "React Native",
-  "MySQL",
-  "Firebase",
-  "Git & GitHub",
-  "Performance Optimization"
-],
+    "Python",
+    "SQL",
+    "Power BI",
+    "Machine Learning",
+    "LangChain",
+    "LangGraph",
+    "Streamlit",
+    "DAX",
+    "ETL Pipelines",
+    "Data Visualization",
+    "TensorFlow",
+    "Scikit-learn",
+    "FAISS",
+    "Tableau",
+    "Pandas & NumPy",
+  ],
   experience: [
-    { company: "To The New", role: "Software Engineer - Android", period: "June 2025 – Present", duration: "8 months", location: "Noida, Uttar Pradesh, India" },
-    { company: "Pando India Software Consultants", role: "Software Developer - Android", period: "July 2024 – June 2025", duration: "1 year", location: "Noida, Uttar Pradesh, India" },
-    { company: "Aumtics Technologies", role: "Software Developer - Android", period: "January 2024 – June 2024", duration: "6 months", location: "Jaipur, Rajasthan, India" },
+    {
+      company: "MKT Softwares Pvt. Ltd.",
+      role: "Data Analyst Intern",
+      period: "June 2025 – August 2025",
+      duration: "3 months",
+      location: "India",
+    },
   ],
   education: [
-    { institution: "Chandigarh University", degree: "Master of Computer Applications (MCA)", period: "2022 – 2024" },
-    { institution: "Guru Nanak Dev University", degree: "Bachelor of Computer Applications, Computer Science", period: "July 2019 – July 2022" },
+    {
+      institution: "Chandigarh University, Mohali",
+      degree: "Master of Computer Applications (MCA)",
+      period: "2022 – 2024",
+    },
+    {
+      institution: "Kanpur University, Kanpur",
+      degree: "Bachelor of Science (B.Sc.)",
+      period: "2018 – 2021",
+    },
   ],
   certifications: [
     {
-      title: "Full Stack Generative and Agentic AI with Python",
-      issuer: "Coursera",
+      title: "PG Diploma in Data Science",
+      issuer: "Imarticus Learning",
+      date: "Ongoing",
+      tags: ["Data Science", "Machine Learning", "Python", "Statistics"],
+      description:
+        "Comprehensive postgraduate diploma covering the full data science lifecycle — statistical foundations, machine learning algorithms, deep learning, and real-world project workflows using Python and industry tools.",
+    },
+    {
+      title: "Data Analyst Certification",
+      issuer: "MKT Softwares, Kanpur",
       date: "2025",
-      tags: ["Python", "GenAI", "LLMs", "Agents"],
-      description: "Covered end-to-end development of generative AI applications using Python, including LLM integration, prompt engineering, and building autonomous agentic workflows with LangChain and OpenAI APIs."
-    },
-    {
-      title: "Troubleshooting Android Performance",
-      issuer: "Google",
-      date: "2025",
-      tags: ["Android", "Profiling", "Memory", "Optimization"],
-      description: "Focused on diagnosing and resolving Android performance bottlenecks — memory leaks, UI jank, slow startup — using Android Studio profiler, Systrace, and best practices for rendering and background work."
-    },
-    {
-      title: "React Native",
-      issuer: "Coursera",
-      date: "2025",
-      tags: ["React Native", "JavaScript", "Cross-Platform", "Mobile"],
-      description: "Hands-on course covering React Native fundamentals, navigation patterns, state management, native module bridging, and deploying cross-platform mobile apps for both iOS and Android."
-    },
-    {
-      title: "Prompt Engineering for Everyone",
-      issuer: "Coursera",
-      date: "2024",
-      tags: ["Prompt Engineering", "AI", "NLP", "ChatGPT"],
-      description: "Explored systematic techniques for crafting effective prompts — zero-shot, few-shot, chain-of-thought reasoning — and strategies for optimizing AI outputs across generative text and code models."
-    },
-    {
-      title: "Foundations: Data, Data, Everywhere — Specialization",
-      issuer: "Google / Coursera",
-      date: "2024",
-      tags: ["Data Analytics", "SQL", "Spreadsheets", "Visualization"],
-      description: "Comprehensive specialization introducing core data analytics concepts: data types, cleaning, analysis with spreadsheets and SQL, and communicating findings through effective data visualizations."
-    },
-    {
-      title: "Prepare Data for Exploration",
-      issuer: "Google / Coursera",
-      date: "2024",
-      tags: ["SQL", "BigQuery", "Data Cleaning", "Analysis"],
-      description: "Deep dive into preparing raw datasets for analysis — handling missing values, standardizing formats, writing SQL queries in BigQuery, and building a solid foundation for exploratory data analysis workflows."
+      tags: ["Power BI", "SQL", "DAX", "Data Analysis"],
+      description:
+        "Industry certification validating hands-on proficiency in data analysis, dashboard reporting with Power BI, SQL-based data pipelines, and KPI tracking for business decision-making.",
     },
   ],
 };
@@ -295,7 +287,7 @@ export default function Portfolio() {
           display:"flex", alignItems:"center", justifyContent:"center",
           fontSize: isMobile?25:34, fontWeight:700, color:"#0a0a0f",
           fontFamily:"'Playfair Display', serif", boxShadow:"0 0 44px #c8a96e30",
-        }}>GS</div>
+        }}>ST</div>
 
         <h1 style={{
           fontFamily:"'Playfair Display', serif",
@@ -312,7 +304,7 @@ export default function Portfolio() {
         </p>
 
         <div style={{ display:"flex", gap: isMobile?24: isDesktop?64:40, marginBottom: isMobile?32: isDesktop?52:40, flexWrap:"wrap", justifyContent:"center" }}>
-          {[{label:"Years Experience",value:2},{label:"Roles Held",value:3},{label:"Certifications",value:6}].map(s=>(
+          {[{label:"Years Experience",value:1},{label:"Projects Built",value:3},{label:"Certifications",value:2}].map(s=>(
             <div key={s.label} style={{ textAlign:"center", minWidth: isMobile?68:100 }}>
               <div style={{ fontSize: isMobile?21: isDesktop?34:26, fontFamily:"'Playfair Display', serif", color:"#c8a96e", fontWeight:700 }}>
                 <AnimatedNumber target={s.value} suffix="+" />
@@ -366,7 +358,7 @@ export default function Portfolio() {
                 display:"flex", alignItems:"center", justifyContent:"center",
                 fontSize:17, fontWeight:700, color:"#0a0a0f", fontFamily:"'Playfair Display', serif",
                 boxShadow:"0 0 18px #c8a96e25",
-              }}>GS</div>
+              }}>ST</div>
               <div>
                 <p style={{ fontFamily:"'Playfair Display', serif", fontSize:15, color:"#f0ede8", fontWeight:700, lineHeight:1.3 }}>{portfolio.name}</p>
                 <p style={{ fontSize:11, color:"#c8a96e", fontFamily:"'JetBrains Mono', monospace", letterSpacing:1.5, textTransform:"uppercase", marginTop:2 }}>{portfolio.title}</p>
@@ -401,7 +393,7 @@ export default function Portfolio() {
             </div>
 
             <div style={{ marginTop:"auto" }}>
-              <p style={{ fontSize:10, color:"#2a2a2a", fontFamily:"'JetBrains Mono', monospace" }}>© 2026 Gagan Kumar Saini</p>
+              <p style={{ fontSize:10, color:"#2a2a2a", fontFamily:"'JetBrains Mono', monospace" }}>© 2026 Subrat Tripathi</p>
             </div>
           </aside>
         )}
@@ -596,7 +588,7 @@ export default function Portfolio() {
           display:"flex", justifyContent: isMobile?"center":"space-between", alignItems:"center",
           flexWrap:"wrap", gap:6, flexDirection: isMobile?"column":"row",
         }}>
-          <p style={{ fontSize:11, color:"#3a3a3a", fontFamily:"'JetBrains Mono', monospace" }}>© 2026 Gagan Kumar Saini</p>
+          <p style={{ fontSize:11, color:"#3a3a3a", fontFamily:"'JetBrains Mono', monospace" }}>© 2026 Subrat Tripathi</p>
           <p style={{ fontSize:10, color:"#2a2a2a", fontFamily:"'JetBrains Mono', monospace" }}>Built with React · Designed with care</p>
         </footer>
       )}
