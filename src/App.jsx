@@ -23,8 +23,8 @@ const portfolio = {
     "Data Visualization",
     "TensorFlow",
     "Scikit-learn",
+    "Hyper Parameter Tunning",
     "FAISS",
-    "Tableau",
     "Pandas & NumPy",
   ],
   experience: [
