@@ -211,7 +211,7 @@ export default function Portfolio() {
   );
 
   return (
-    <div style={{ background: "#0a0a0f", color: "#e8e6e1", fontFamily: "'Georgia', serif", minHeight: "100vh",minWidth :"90vw", overflowX: "hidden" }}>
+    <div style={{ background: "#0a0a0f", color: "#e8e6e1", fontFamily: "'Georgia', serif", minHeight: "100vh", width: "100%", overflowX: "hidden" }}>
 
       {/* ──── globals ──── */}
       <style>{`
@@ -308,7 +308,7 @@ export default function Portfolio() {
         minHeight: "100vh", display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center", textAlign: "center",
         padding: isMobile ? "100px 20px 100px" : "120px 40px 80px",
-        position: "relative", width: "100%",
+        position: "relative", width: "100vw", marginLeft: "calc(-50vw + 50%)",
       }}>
         <div style={{ position:"absolute", top:"28%", left:"50%", transform:"translate(-50%,-50%)", width: isMobile?300:700, height: isMobile?300:700, borderRadius:"50%", background:"radial-gradient(circle,#c8a96e10 0%,transparent 70%)", pointerEvents:"none" }} />
         <div style={{ position:"absolute", top:"65%", left: isMobile?"8%":"15%", width: isMobile?160:380, height: isMobile?160:380, borderRadius:"50%", background:"radial-gradient(circle,#4a90d918 0%,transparent 70%)", pointerEvents:"none" }} />
