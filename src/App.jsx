@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 /* ─── data ─── */
 const portfolio = {
   name: "Subrat Tripathi",
-  title: "Data Analyst & AI Enthusiast",
+  title: "Data Analyst",
   company: "MKT Softwares Pvt. Ltd.",
   location: "India",
   email: "subratcodes9@gmail.com",
@@ -23,8 +23,8 @@ const portfolio = {
     "Data Visualization",
     "TensorFlow",
     "Scikit-learn",
-    "Hyper Parameter Tunning",
     "FAISS",
+    "Tableau",
     "Pandas & NumPy",
   ],
   experience: [
@@ -474,6 +474,46 @@ export default function Portfolio() {
                       <p style={{ fontSize: isDesktop?12.5:11, color:"#555", fontFamily:"'JetBrains Mono', monospace" }}>📅 {exp.period}</p>
                       <p style={{ fontSize: isDesktop?12.5:11, color:"#555", fontFamily:"'JetBrains Mono', monospace" }}>📍 {exp.location}</p>
                     </div>
+                  </div>
+                </RevealSection>
+              ))}
+            </div>
+          </section>
+
+          {/* PROJECTS */}
+          <section id="projects" style={{ padding: isMobile ? "64px 18px" : isDesktop ? "0 0 72px" : "80px 28px" }}>
+            <SH title="Projects" />
+            <div style={{ display:"flex", flexDirection:"column", gap: isMobile?16:20 }}>
+              {portfolio.projects.map((proj, i) => (
+                <RevealSection key={i} delay={i * 100}>
+                  <div style={{
+                    padding: cardPad, borderRadius:14,
+                    border:"1px solid #c8a96e15", borderLeft:"3px solid #c8a96e55",
+                    background:"#0f0f14",
+                  }}>
+                    {/* title row */}
+                    <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:10, marginBottom:14 }}>
+                      <h3 style={{ fontFamily:"'Playfair Display', serif", fontSize: isMobile?17: isDesktop?22:19, color:"#f0ede8" }}>{proj.title}</h3>
+                      <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
+                        {proj.tags.map((tag, ti) => (
+                          <span key={ti} style={{
+                            padding:"3px 10px", borderRadius:10,
+                            border:"1px solid #c8a96e33", background:"#c8a96e08",
+                            color:"#c8a96e", fontSize: isMobile?10:11,
+                            fontFamily:"'JetBrains Mono', monospace",
+                          }}>{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+                    {/* highlights */}
+                    <ul style={{ listStyle:"none", display:"flex", flexDirection:"column", gap:8 }}>
+                      {proj.highlights.map((hl, hi) => (
+                        <li key={hi} style={{ display:"flex", gap:10, alignItems:"flex-start" }}>
+                          <span style={{ color:"#c8a96e", fontSize:12, marginTop:4, flexShrink:0 }}>▸</span>
+                          <p style={{ color:"#7a7570", fontSize: isMobile?13: isDesktop?14.5:13.5, lineHeight:1.7, fontFamily:"'Georgia', serif" }}>{hl}</p>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </RevealSection>
               ))}
