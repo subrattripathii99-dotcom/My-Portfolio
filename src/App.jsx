@@ -71,6 +71,7 @@ const portfolio = {
     },
     {
       title: "Classic Model Dashboard",
+      link : "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZTI3Mi00ODQyLTg0YjQtYjA5N2E1ZDE3M2EiLCJuIjoiQ2xhc3NpYyBNb2RlbCIsImMiOjh9",
       tags: ["Power BI", "SQL", "DAX"],
       highlights: [
         "Built a Power BI dashboard on 100K+ transactional records tracking revenue, orders, and regional performance",
@@ -211,7 +212,7 @@ export default function Portfolio() {
   );
 
   return (
-    <div style={{ background: "#0a0a0f", color: "#e8e6e1", fontFamily: "'Georgia', serif", minHeight: "100vh", width: "100%", overflowX: "hidden" }}>
+    <div style={{ background: "#0a0a0f", color: "#e8e6e1", fontFamily: "'Georgia', serif", minHeight: "100vh", width: "100vw", overflowX: "hidden" }}>
 
       {/* ──── globals ──── */}
       <style>{`
