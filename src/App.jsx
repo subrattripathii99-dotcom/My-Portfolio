@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 /* ─── data ─── */
 const portfolio = {
   name: "Subrat Tripathi",
-  title: "Data Analyst",
+  title: "Data Analyst & AI Enthusiast",
   company: "MKT Softwares Pvt. Ltd.",
   location: "India",
   email: "subratcodes9@gmail.com",
@@ -23,8 +23,8 @@ const portfolio = {
     "Data Visualization",
     "TensorFlow",
     "Scikit-learn",
+    "Hyper Parameter Tunning",
     "FAISS",
-    "Tableau",
     "Pandas & NumPy",
   ],
   experience: [
