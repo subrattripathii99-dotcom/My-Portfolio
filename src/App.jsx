@@ -48,6 +48,38 @@ const portfolio = {
       period: "2018 – 2021",
     },
   ],
+  projects: [
+    {
+      title: "MultiDoc Reviewer Agent",
+      tags: ["Python", "LangChain", "LangGraph", "Streamlit", "FAISS"],
+      highlights: [
+        "Built a multi-agent RAG system for contextual Q&A across 50+ documents",
+        "Implemented FAISS-based vector search with re-ranking to improve retrieval precision across 20+ candidate chunks",
+        "Engineered an automated evaluation system to reduce hallucinations by 25%",
+        "Deployed a Streamlit app with chat history, persistent storage, and source attribution",
+      ],
+    },
+    {
+      title: "Autonomous ML Agent",
+      tags: ["Python", "Machine Learning", "Streamlit", "Optuna", "Scikit-learn"],
+      highlights: [
+        "Automated agent to detect regression/classification tasks and preprocess data, enabling autonomous training of 5+ models",
+        "Enhanced model performance by 2–3% through advanced feature engineering and preprocessing",
+        "Improved model accuracy by up to 5% via Optuna hyperparameter tuning integration",
+        "Designed an interactive Streamlit dashboard with visualizations and model export, increasing user engagement by 50%",
+      ],
+    },
+    {
+      title: "Classic Model Dashboard",
+      tags: ["Power BI", "SQL", "DAX"],
+      highlights: [
+        "Built a Power BI dashboard on 100K+ transactional records tracking revenue, orders, and regional performance",
+        "Integrated 15+ KPI cards with interactive visualizations for sales trends, profit analysis, and YoY growth",
+        "Automated 10+ distinct sales reports, reducing manual reporting time by 15 hours per week",
+        "Applied 20+ DAX measures, SQL queries, slicers, and drill-through reports to improve decision-making efficiency by 50%",
+      ],
+    },
+  ],
   certifications: [
     {
       title: "PG Diploma in Data Science",
@@ -126,6 +158,7 @@ const NAV = [
   { id: "home", icon: "⌂" },
   { id: "about", icon: "◐" },
   { id: "experience", icon: "✦" },
+  { id: "projects", icon: "◉" },
   { id: "education", icon: "◇" },
   { id: "skills", icon: "◈" },
   { id: "certifications", icon: "★" },
