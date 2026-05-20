@@ -211,7 +211,7 @@ export default function Portfolio() {
   );
 
   return (
-    <div style={{ background: "#0a0a0f", color: "#e8e6e1", fontFamily: "'Georgia', serif", minHeight: "100vh",minWidth :"100vw", overflowX: "hidden" }}>
+    <div style={{ background: "#0a0a0f", color: "#e8e6e1", fontFamily: "'Georgia', serif", minHeight: "100vh",minWidth :"90vw", overflowX: "hidden" }}>
 
       {/* ──── globals ──── */}
       <style>{`
