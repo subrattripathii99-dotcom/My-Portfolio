@@ -11,21 +11,9 @@ const portfolio = {
   summary:
     "Data Analyst and Data Scientist enthusiast with experience in Python, SQL, Power BI, and machine learning for data analysis, dashboard reporting, and predictive modeling. Skilled in DAX, ETL pipelines, KPI tracking, data visualization, and RAG-based AI applications using LangChain and Streamlit.",
   skills: [
-    "Python",
-    "SQL",
-    "Power BI",
-    "Machine Learning",
-    "LangChain",
-    "LangGraph",
-    "Streamlit",
-    "DAX",
-    "ETL Pipelines",
-    "Data Visualization",
-    "TensorFlow",
-    "Scikit-learn",
-    "FAISS",
-    "Tableau",
-    "Pandas & NumPy",
+    "Python", "SQL", "Power BI", "Machine Learning", "LangChain", "LangGraph",
+    "Streamlit", "DAX", "ETL Pipelines", "Data Visualization", "TensorFlow",
+    "Scikit-learn", "FAISS", "Tableau", "Pandas & NumPy",
   ],
   experience: [
     {
@@ -71,7 +59,7 @@ const portfolio = {
     },
     {
       title: "Classic Model Dashboard",
-      link : "https://app.powerbi.com/view?r=eyJrIjoiYjE4ZDEwYjAtZTI3Mi00ODQyLTg0YjQtYjA5N2E1ZDE3M2EiLCJuIjoiQ2xhc3NpYyBNb2RlbCIsImMiOjh9",
+      link: "https://app.powerbi.com/view?r=eyJrIjoiM2QwZGYxZDQtOWE4ZC00M2QzLTkzZDYtNmJkMmQ3MjA0YTc4IiwidCI6IjM0YmQ4YmVkLTJhYzEtNDFhZS05ZjA4LTRlMGEzZjExNzA2YyJ9",
       tags: ["Power BI", "SQL", "DAX"],
       highlights: [
         "Built a Power BI dashboard on 100K+ transactional records tracking revenue, orders, and regional performance",
@@ -120,7 +108,10 @@ function useReveal() {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.1 });
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
@@ -144,8 +135,13 @@ function AnimatedNumber({ target, suffix = "" }) {
   useEffect(() => {
     const obs = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        let s = 0; const step = target / 40;
-        const t = setInterval(() => { s += step; if (s >= target) { setCount(target); clearInterval(t); } else setCount(Math.floor(s)); }, 30);
+        let s = 0;
+        const step = target / 40;
+        const t = setInterval(() => {
+          s += step;
+          if (s >= target) { setCount(target); clearInterval(t); }
+          else setCount(Math.floor(s));
+        }, 30);
       }
     }, { threshold: 0.5 });
     if (ref.current) obs.observe(ref.current);
@@ -182,6 +178,7 @@ export default function Portfolio() {
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
   useEffect(() => { if (!isMobile) setDrawerOpen(false); }, [isMobile]);
 
   const navTo = (id) => {
@@ -212,7 +209,11 @@ export default function Portfolio() {
   );
 
   return (
-    <div style={{ background: "#0a0a0f", color: "#e8e6e1", fontFamily: "'Georgia', serif", minHeight: "100vh", width: "100vw", overflowX: "hidden" }}>
+    <div style={{
+      background: "#0a0a0f", color: "#e8e6e1",
+      fontFamily: "'Georgia', serif", minHeight: "100vh",
+      width: "100%", overflowX: "hidden",
+    }}>
 
       {/* ──── globals ──── */}
       <style>{`
@@ -247,7 +248,8 @@ export default function Portfolio() {
           display: "flex", gap: 3, padding: "5px 10px", borderRadius: 40,
           background: scrolled ? "rgba(10,10,15,0.88)" : "rgba(10,10,15,0.45)",
           backdropFilter: "blur(18px)", border: "1px solid rgba(200,169,110,0.15)",
-          boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,0.4)" : "none", transition: "all .4s ease",
+          boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,0.4)" : "none",
+          transition: "all .4s ease",
         }}>
           {NAV.map(({ id }) => (
             <button key={id} className="nav-pill" onClick={() => navTo(id)} style={{
@@ -273,106 +275,119 @@ export default function Portfolio() {
             alignItems: "center", justifyContent: "center",
             gap: drawerOpen ? 0 : 5, cursor: "pointer", transition: "gap .25s",
           }}>
-            <span style={{ display:"block", width:22, height:2, background:"#c8a96e", borderRadius:2, transform: drawerOpen ? "rotate(45deg) translate(3px,3px)" : "none", transition:"transform .3s" }} />
-            <span style={{ display:"block", width:22, height:2, background:"#c8a96e", borderRadius:2, opacity: drawerOpen ? 0 : 1, transition:"opacity .2s" }} />
-            <span style={{ display:"block", width:22, height:2, background:"#c8a96e", borderRadius:2, transform: drawerOpen ? "rotate(-45deg) translate(3px,-3px)" : "none", transition:"transform .3s" }} />
+            <span style={{ display: "block", width: 22, height: 2, background: "#c8a96e", borderRadius: 2, transform: drawerOpen ? "rotate(45deg) translate(3px,3px)" : "none", transition: "transform .3s" }} />
+            <span style={{ display: "block", width: 22, height: 2, background: "#c8a96e", borderRadius: 2, opacity: drawerOpen ? 0 : 1, transition: "opacity .2s" }} />
+            <span style={{ display: "block", width: 22, height: 2, background: "#c8a96e", borderRadius: 2, transform: drawerOpen ? "rotate(-45deg) translate(3px,-3px)" : "none", transition: "transform .3s" }} />
           </button>
-          {drawerOpen && <div onClick={() => setDrawerOpen(false)} style={{ position:"fixed", inset:0, zIndex:150, background:"rgba(0,0,0,0.5)", backdropFilter:"blur(4px)" }} />}
+          {drawerOpen && (
+            <div onClick={() => setDrawerOpen(false)} style={{
+              position: "fixed", inset: 0, zIndex: 150,
+              background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)",
+            }} />
+          )}
           <div style={{
-            position:"fixed", top:0, left:0, right:0, zIndex:160,
-            background:"rgba(12,12,18,0.96)", backdropFilter:"blur(20px)",
-            borderBottom:"1px solid rgba(200,169,110,0.18)",
-            padding:"68px 22px 20px",
+            position: "fixed", top: 0, left: 0, right: 0, zIndex: 160,
+            background: "rgba(12,12,18,0.96)", backdropFilter: "blur(20px)",
+            borderBottom: "1px solid rgba(200,169,110,0.18)",
+            padding: "68px 22px 20px",
             transform: drawerOpen ? "translateY(0)" : "translateY(-100%)",
             opacity: drawerOpen ? 1 : 0,
-            transition:"transform .35s cubic-bezier(.22,1,.36,1), opacity .3s ease",
-            display:"flex", flexDirection:"column", gap:3,
+            transition: "transform .35s cubic-bezier(.22,1,.36,1), opacity .3s ease",
+            display: "flex", flexDirection: "column", gap: 3,
           }}>
             {NAV.map(({ id, icon }) => (
               <button key={id} onClick={() => navTo(id)} style={{
                 background: activeNav === id ? "#c8a96e12" : "transparent",
-                border:"none", borderRadius:10, color: activeNav === id ? "#c8a96e" : "#8a8580",
-                padding:"13px 16px", cursor:"pointer", textAlign:"left",
-                display:"flex", alignItems:"center", gap:14,
-                fontFamily:"'JetBrains Mono', monospace", fontSize:14,
-                letterSpacing:.6, textTransform:"capitalize", transition:"background .2s, color .2s",
+                border: "none", borderRadius: 10,
+                color: activeNav === id ? "#c8a96e" : "#8a8580",
+                padding: "13px 16px", cursor: "pointer", textAlign: "left",
+                display: "flex", alignItems: "center", gap: 14,
+                fontFamily: "'JetBrains Mono', monospace", fontSize: 14,
+                letterSpacing: .6, textTransform: "capitalize",
+                transition: "background .2s, color .2s",
               }}>
-                <span style={{ fontSize:17, opacity:.7 }}>{icon}</span>{id}
+                <span style={{ fontSize: 17, opacity: .7 }}>{icon}</span>{id}
               </button>
             ))}
           </div>
         </>
       )}
 
-      {/* ════════════════ HERO ════════════════ */}
+      {/* ════════════════ HERO — outside flex wrapper so it spans full width ════════════════ */}
       <section id="home" style={{
         minHeight: "100vh", display: "flex", flexDirection: "column",
         alignItems: "center", justifyContent: "center", textAlign: "center",
         padding: isMobile ? "100px 20px 100px" : "120px 40px 80px",
-        position: "relative", width: "100vw", marginLeft: "calc(-50vw + 50%)",
+        position: "relative", width: "100%",
       }}>
-        <div style={{ position:"absolute", top:"28%", left:"50%", transform:"translate(-50%,-50%)", width: isMobile?300:700, height: isMobile?300:700, borderRadius:"50%", background:"radial-gradient(circle,#c8a96e10 0%,transparent 70%)", pointerEvents:"none" }} />
-        <div style={{ position:"absolute", top:"65%", left: isMobile?"8%":"15%", width: isMobile?160:380, height: isMobile?160:380, borderRadius:"50%", background:"radial-gradient(circle,#4a90d918 0%,transparent 70%)", pointerEvents:"none" }} />
-        <div style={{ position:"absolute", top:"50%", right: isMobile?"5%":"12%", width: isMobile?120:260, height: isMobile?120:260, borderRadius:"50%", background:"radial-gradient(circle,#c8a96e0c 0%,transparent 70%)", pointerEvents:"none" }} />
+        {/* background blobs */}
+        <div style={{ position: "absolute", top: "28%", left: "50%", transform: "translate(-50%,-50%)", width: isMobile ? 300 : 700, height: isMobile ? 300 : 700, borderRadius: "50%", background: "radial-gradient(circle,#c8a96e10 0%,transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "65%", left: isMobile ? "8%" : "15%", width: isMobile ? 160 : 380, height: isMobile ? 160 : 380, borderRadius: "50%", background: "radial-gradient(circle,#4a90d918 0%,transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "50%", right: isMobile ? "5%" : "12%", width: isMobile ? 120 : 260, height: isMobile ? 120 : 260, borderRadius: "50%", background: "radial-gradient(circle,#c8a96e0c 0%,transparent 70%)", pointerEvents: "none" }} />
 
+        {/* avatar */}
         <div style={{
-          width: isMobile?76:104, height: isMobile?76:104, borderRadius:"50%", marginBottom:28,
-          background:"linear-gradient(135deg,#c8a96e,#a07840)",
-          display:"flex", alignItems:"center", justifyContent:"center",
-          fontSize: isMobile?25:34, fontWeight:700, color:"#0a0a0f",
-          fontFamily:"'Playfair Display', serif", boxShadow:"0 0 44px #c8a96e30",
+          width: isMobile ? 76 : 104, height: isMobile ? 76 : 104, borderRadius: "50%", marginBottom: 28,
+          background: "linear-gradient(135deg,#c8a96e,#a07840)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: isMobile ? 25 : 34, fontWeight: 700, color: "#0a0a0f",
+          fontFamily: "'Playfair Display', serif", boxShadow: "0 0 44px #c8a96e30",
         }}>ST</div>
 
         <h1 style={{
-          fontFamily:"'Playfair Display', serif",
+          fontFamily: "'Playfair Display', serif",
           fontSize: isMobile ? 27 : isDesktop ? 72 : 44,
-          fontWeight:700, letterSpacing: isDesktop ? -1.5 : -.5, lineHeight:1.12,
-          color:"#f0ede8", marginBottom:12,
+          fontWeight: 700, letterSpacing: isDesktop ? -1.5 : -.5, lineHeight: 1.12,
+          color: "#f0ede8", marginBottom: 12,
         }}>{portfolio.name}</h1>
 
-        <p style={{ fontFamily:"'JetBrains Mono', monospace", fontSize: isMobile?10.5: isDesktop?15:13, color:"#c8a96e", letterSpacing: isMobile?2:3.5, textTransform:"uppercase", marginBottom:6 }}>
+        <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: isMobile ? 10.5 : isDesktop ? 15 : 13, color: "#c8a96e", letterSpacing: isMobile ? 2 : 3.5, textTransform: "uppercase", marginBottom: 6 }}>
           {portfolio.title}
         </p>
-        <p style={{ color:"#555", fontSize: isMobile?11: isDesktop?15:13, fontFamily:"'JetBrains Mono', monospace", marginBottom: isMobile?28:44 }}>
+        <p style={{ color: "#555", fontSize: isMobile ? 11 : isDesktop ? 15 : 13, fontFamily: "'JetBrains Mono', monospace", marginBottom: isMobile ? 28 : 44 }}>
           {portfolio.company} · {portfolio.location}
         </p>
 
-        <div style={{ display:"flex", gap: isMobile?24: isDesktop?64:40, marginBottom: isMobile?32: isDesktop?52:40, flexWrap:"wrap", justifyContent:"center" }}>
-          {[{label:"Years Experience",value:1},{label:"Projects Built",value:3},{label:"Certifications",value:2}].map(s=>(
-            <div key={s.label} style={{ textAlign:"center", minWidth: isMobile?68:100 }}>
-              <div style={{ fontSize: isMobile?21: isDesktop?34:26, fontFamily:"'Playfair Display', serif", color:"#c8a96e", fontWeight:700 }}>
+        {/* stats */}
+        <div style={{ display: "flex", gap: isMobile ? 24 : isDesktop ? 64 : 40, marginBottom: isMobile ? 32 : isDesktop ? 52 : 40, flexWrap: "wrap", justifyContent: "center" }}>
+          {[{ label: "Years Experience", value: 1 }, { label: "Projects Built", value: 3 }, { label: "Certifications", value: 2 }].map(s => (
+            <div key={s.label} style={{ textAlign: "center", minWidth: isMobile ? 68 : 100 }}>
+              <div style={{ fontSize: isMobile ? 21 : isDesktop ? 34 : 26, fontFamily: "'Playfair Display', serif", color: "#c8a96e", fontWeight: 700 }}>
                 <AnimatedNumber target={s.value} suffix="+" />
               </div>
-              <div style={{ fontSize: isMobile?8.5: isDesktop?11:10, color:"#555", fontFamily:"'JetBrains Mono', monospace", letterSpacing:1.2, textTransform:"uppercase", marginTop:5 }}>{s.label}</div>
+              <div style={{ fontSize: isMobile ? 8.5 : isDesktop ? 11 : 10, color: "#555", fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.2, textTransform: "uppercase", marginTop: 5 }}>{s.label}</div>
             </div>
           ))}
         </div>
 
-        <div style={{ display:"flex", gap: isMobile?10:14, flexWrap:"wrap", justifyContent:"center" }}>
+        {/* CTA buttons */}
+        <div style={{ display: "flex", gap: isMobile ? 10 : 14, flexWrap: "wrap", justifyContent: "center" }}>
           <a href={portfolio.linkedin} target="_blank" rel="noreferrer" style={{
-            padding: isMobile?"9px 20px": isDesktop?"12px 32px":"10px 26px", borderRadius:26,
-            border:"1px solid #c8a96e66", color:"#c8a96e",
-            fontFamily:"'JetBrains Mono', monospace", fontSize: isMobile?11.5: isDesktop?14:12.5,
-            background:"transparent", cursor:"pointer", transition:"all .3s",
+            padding: isMobile ? "9px 20px" : isDesktop ? "12px 32px" : "10px 26px", borderRadius: 26,
+            border: "1px solid #c8a96e66", color: "#c8a96e",
+            fontFamily: "'JetBrains Mono', monospace", fontSize: isMobile ? 11.5 : isDesktop ? 14 : 12.5,
+            background: "transparent", cursor: "pointer", transition: "all .3s",
           }}
-            onMouseEnter={e=>{e.currentTarget.style.background="#c8a96e18";e.currentTarget.style.borderColor="#c8a96e"}}
-            onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.borderColor="#c8a96e66"}}
+            onMouseEnter={e => { e.currentTarget.style.background = "#c8a96e18"; e.currentTarget.style.borderColor = "#c8a96e"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "#c8a96e66"; }}
           >LinkedIn ↗</a>
-          <button onClick={()=>navTo("contact")} style={{
-            padding: isMobile?"9px 20px": isDesktop?"12px 32px":"10px 26px", borderRadius:26, border:"none",
-            background:"linear-gradient(135deg,#c8a96e,#a07840)", color:"#0a0a0f",
-            fontFamily:"'JetBrains Mono', monospace", fontSize: isMobile?11.5: isDesktop?14:12.5, fontWeight:500, cursor:"pointer",
+          <button onClick={() => navTo("contact")} style={{
+            padding: isMobile ? "9px 20px" : isDesktop ? "12px 32px" : "10px 26px", borderRadius: 26, border: "none",
+            background: "linear-gradient(135deg,#c8a96e,#a07840)", color: "#0a0a0f",
+            fontFamily: "'JetBrains Mono', monospace", fontSize: isMobile ? 11.5 : isDesktop ? 14 : 12.5, fontWeight: 500, cursor: "pointer",
           }}>Contact Me</button>
         </div>
 
-        <div style={{ position:"absolute", bottom: isMobile?88:32, left:"50%", transform:"translateX(-50%)", display:"flex", flexDirection:"column", alignItems:"center", gap:5, color:"#3d3d3d", fontSize:9, fontFamily:"'JetBrains Mono', monospace", letterSpacing:2, textTransform:"uppercase" }}>
+        {/* scroll indicator */}
+        <div style={{ position: "absolute", bottom: isMobile ? 88 : 32, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 5, color: "#3d3d3d", fontSize: 9, fontFamily: "'JetBrains Mono', monospace", letterSpacing: 2, textTransform: "uppercase" }}>
           <span>Scroll</span>
-          <div style={{ width:1, height:28, background:"linear-gradient(to bottom,#c8a96e,transparent)", animation:"pulse 2s ease-in-out infinite" }} />
+          <div style={{ width: 1, height: 28, background: "linear-gradient(to bottom,#c8a96e,transparent)", animation: "pulse 2s ease-in-out infinite" }} />
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════
            DESKTOP: sidebar + main  |  TABLET/MOBILE: single column
+           Hero is intentionally ABOVE this wrapper to span full width.
          ════════════════════════════════════════════════════════════ */}
       <div style={{ display: isDesktop ? "flex" : "block", width: "100%" }}>
 
@@ -381,53 +396,53 @@ export default function Portfolio() {
           <aside style={{
             width: 300, flexShrink: 0,
             position: "sticky", top: 0, height: "100vh",
-            padding: "100px 28px 40px 48px",
+            padding: "60px 28px 40px 48px",
             display: "flex", flexDirection: "column", gap: 30,
             borderRight: "1px solid rgba(200,169,110,0.08)",
           }}>
-            <div style={{ display:"flex", alignItems:"center", gap:14 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
               <div style={{
-                width:48, height:48, borderRadius:"50%", flexShrink:0,
-                background:"linear-gradient(135deg,#c8a96e,#a07840)",
-                display:"flex", alignItems:"center", justifyContent:"center",
-                fontSize:17, fontWeight:700, color:"#0a0a0f", fontFamily:"'Playfair Display', serif",
-                boxShadow:"0 0 18px #c8a96e25",
+                width: 48, height: 48, borderRadius: "50%", flexShrink: 0,
+                background: "linear-gradient(135deg,#c8a96e,#a07840)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontSize: 17, fontWeight: 700, color: "#0a0a0f",
+                fontFamily: "'Playfair Display', serif", boxShadow: "0 0 18px #c8a96e25",
               }}>ST</div>
               <div>
-                <p style={{ fontFamily:"'Playfair Display', serif", fontSize:15, color:"#f0ede8", fontWeight:700, lineHeight:1.3 }}>{portfolio.name}</p>
-                <p style={{ fontSize:11, color:"#c8a96e", fontFamily:"'JetBrains Mono', monospace", letterSpacing:1.5, textTransform:"uppercase", marginTop:2 }}>{portfolio.title}</p>
+                <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 15, color: "#f0ede8", fontWeight: 700, lineHeight: 1.3 }}>{portfolio.name}</p>
+                <p style={{ fontSize: 11, color: "#c8a96e", fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1.5, textTransform: "uppercase", marginTop: 2 }}>{portfolio.title}</p>
               </div>
             </div>
 
-            <div style={{ width:"100%", height:1, background:"linear-gradient(90deg, #c8a96e30, transparent)" }} />
+            <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg, #c8a96e30, transparent)" }} />
 
             <div>
-              <p style={{ fontSize:9.5, color:"#444", fontFamily:"'JetBrains Mono', monospace", letterSpacing:2, textTransform:"uppercase", marginBottom:12 }}>Skills</p>
-              <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
-                {portfolio.skills.map((s,i)=>(
+              <p style={{ fontSize: 9.5, color: "#444", fontFamily: "'JetBrains Mono', monospace", letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>Skills</p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                {portfolio.skills.map((s, i) => (
                   <span key={i} className="skill-tag" style={{
-                    padding:"5px 11px", borderRadius:14,
-                    border:"1px solid #c8a96e25", background:"#c8a96e06",
-                    color:"#c8a96e", fontSize:11, fontFamily:"'JetBrains Mono', monospace", cursor:"default",
+                    padding: "5px 11px", borderRadius: 14,
+                    border: "1px solid #c8a96e25", background: "#c8a96e06",
+                    color: "#c8a96e", fontSize: 11, fontFamily: "'JetBrains Mono', monospace", cursor: "default",
                   }}>{s}</span>
                 ))}
               </div>
             </div>
 
-            <div style={{ width:"100%", height:1, background:"linear-gradient(90deg, #c8a96e30, transparent)" }} />
+            <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg, #c8a96e30, transparent)" }} />
 
             <div>
-              <p style={{ fontSize:9.5, color:"#444", fontFamily:"'JetBrains Mono', monospace", letterSpacing:2, textTransform:"uppercase", marginBottom:14 }}>Contact</p>
-              <a href={`mailto:${portfolio.email}`} className="sidebar-link" style={{ display:"block", fontSize:12, color:"#9a9590", fontFamily:"'JetBrains Mono', monospace", marginBottom:10, paddingLeft:0, cursor:"pointer" }}>
+              <p style={{ fontSize: 9.5, color: "#444", fontFamily: "'JetBrains Mono', monospace", letterSpacing: 2, textTransform: "uppercase", marginBottom: 14 }}>Contact</p>
+              <a href={`mailto:${portfolio.email}`} className="sidebar-link" style={{ display: "block", fontSize: 12, color: "#9a9590", fontFamily: "'JetBrains Mono', monospace", marginBottom: 10, paddingLeft: 0, cursor: "pointer" }}>
                 ✉ {portfolio.email}
               </a>
-              <a href={portfolio.linkedin} target="_blank" rel="noreferrer" className="sidebar-link" style={{ display:"block", fontSize:12, color:"#9a9590", fontFamily:"'JetBrains Mono', monospace", paddingLeft:0, cursor:"pointer" }}>
+              <a href={portfolio.linkedin} target="_blank" rel="noreferrer" className="sidebar-link" style={{ display: "block", fontSize: 12, color: "#9a9590", fontFamily: "'JetBrains Mono', monospace", paddingLeft: 0, cursor: "pointer" }}>
                 ↗ LinkedIn
               </a>
             </div>
 
-            <div style={{ marginTop:"auto" }}>
-              <p style={{ fontSize:10, color:"#2a2a2a", fontFamily:"'JetBrains Mono', monospace" }}>© 2026 Subrat Tripathi</p>
+            <div style={{ marginTop: "auto" }}>
+              <p style={{ fontSize: 10, color: "#2a2a2a", fontFamily: "'JetBrains Mono', monospace" }}>© 2026 Subrat Tripathi</p>
             </div>
           </aside>
         )}
@@ -439,18 +454,18 @@ export default function Portfolio() {
           <section id="about" style={{ padding: isMobile ? "64px 18px" : isDesktop ? "0 0 72px" : "80px 28px" }}>
             <SH title="About" />
             <RevealSection delay={120}>
-              <p style={{ fontSize: isMobile?15: isDesktop?18:16, lineHeight:1.9, color:"#9a9590", fontFamily:"'Georgia', serif", maxWidth: isDesktop?1600:undefined }}>
+              <p style={{ fontSize: isMobile ? 15 : isDesktop ? 18 : 16, lineHeight: 1.9, color: "#9a9590", fontFamily: "'Georgia', serif", maxWidth: isDesktop ? 1600 : undefined }}>
                 {portfolio.summary}
               </p>
               {!isDesktop && (
-                <div style={{ marginTop:26, paddingTop:20, borderTop:"1px solid #c8a96e15", display:"flex", gap: isMobile?20:40, flexWrap:"wrap" }}>
+                <div style={{ marginTop: 26, paddingTop: 20, borderTop: "1px solid #c8a96e15", display: "flex", gap: isMobile ? 20 : 40, flexWrap: "wrap" }}>
                   <div>
-                    <p style={{ fontSize:9.5, color:"#555", fontFamily:"'JetBrains Mono', monospace", letterSpacing:2, textTransform:"uppercase", marginBottom:5 }}>Email</p>
-                    <a href={`mailto:${portfolio.email}`} style={{ color:"#c8a96e", fontSize: isMobile?11.5:13, fontFamily:"'JetBrains Mono', monospace", wordBreak:"break-all" }}>{portfolio.email}</a>
+                    <p style={{ fontSize: 9.5, color: "#555", fontFamily: "'JetBrains Mono', monospace", letterSpacing: 2, textTransform: "uppercase", marginBottom: 5 }}>Email</p>
+                    <a href={`mailto:${portfolio.email}`} style={{ color: "#c8a96e", fontSize: isMobile ? 11.5 : 13, fontFamily: "'JetBrains Mono', monospace", wordBreak: "break-all" }}>{portfolio.email}</a>
                   </div>
                   <div>
-                    <p style={{ fontSize:9.5, color:"#555", fontFamily:"'JetBrains Mono', monospace", letterSpacing:2, textTransform:"uppercase", marginBottom:5 }}>Location</p>
-                    <p style={{ color:"#9a9590", fontSize: isMobile?11.5:13, fontFamily:"'JetBrains Mono', monospace" }}>{portfolio.location}</p>
+                    <p style={{ fontSize: 9.5, color: "#555", fontFamily: "'JetBrains Mono', monospace", letterSpacing: 2, textTransform: "uppercase", marginBottom: 5 }}>Location</p>
+                    <p style={{ color: "#9a9590", fontSize: isMobile ? 11.5 : 13, fontFamily: "'JetBrains Mono', monospace" }}>{portfolio.location}</p>
                   </div>
                 </div>
               )}
@@ -460,20 +475,20 @@ export default function Portfolio() {
           {/* EXPERIENCE */}
           <section id="experience" style={{ padding: isMobile ? "64px 18px" : isDesktop ? "0 0 72px" : "80px 28px" }}>
             <SH title="Experience" />
-            <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-              {portfolio.experience.map((exp,i)=>(
-                <RevealSection key={i} delay={i*100}>
-                  <div className="exp-card" style={{ padding:cardPad, borderRadius:14, border:"1px solid #c8a96e15", borderLeft:"3px solid #c8a96e33", background:"#c8a96e04", cursor:"default" }}>
-                    <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:10 }}>
-                      <div style={{ flex:1, minWidth:0 }}>
-                        <h3 style={{ fontFamily:"'Playfair Display', serif", fontSize: isMobile?17: isDesktop?22:19, color:"#f0ede8", marginBottom:4 }}>{exp.role}</h3>
-                        <p style={{ color:"#c8a96e", fontSize: isMobile?12: isDesktop?15:13, fontFamily:"'JetBrains Mono', monospace", whiteSpace:"nowrap", overflow:"hidden", textOverflow:"ellipsis" }}>{exp.company}</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {portfolio.experience.map((exp, i) => (
+                <RevealSection key={i} delay={i * 100}>
+                  <div className="exp-card" style={{ padding: cardPad, borderRadius: 14, border: "1px solid #c8a96e15", borderLeft: "3px solid #c8a96e33", background: "#c8a96e04", cursor: "default" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 10 }}>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 17 : isDesktop ? 22 : 19, color: "#f0ede8", marginBottom: 4 }}>{exp.role}</h3>
+                        <p style={{ color: "#c8a96e", fontSize: isMobile ? 12 : isDesktop ? 15 : 13, fontFamily: "'JetBrains Mono', monospace", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{exp.company}</p>
                       </div>
-                      <span style={{ fontSize:11.5, color:"#555", fontFamily:"'JetBrains Mono', monospace", background:"#c8a96e0a", padding:"4px 12px", borderRadius:12, flexShrink:0 }}>{exp.duration}</span>
+                      <span style={{ fontSize: 11.5, color: "#555", fontFamily: "'JetBrains Mono', monospace", background: "#c8a96e0a", padding: "4px 12px", borderRadius: 12, flexShrink: 0 }}>{exp.duration}</span>
                     </div>
-                    <div style={{ marginTop:12, display:"flex", gap: isMobile?8: isDesktop?24:16, flexWrap:"wrap" }}>
-                      <p style={{ fontSize: isDesktop?12.5:11, color:"#555", fontFamily:"'JetBrains Mono', monospace" }}>📅 {exp.period}</p>
-                      <p style={{ fontSize: isDesktop?12.5:11, color:"#555", fontFamily:"'JetBrains Mono', monospace" }}>📍 {exp.location}</p>
+                    <div style={{ marginTop: 12, display: "flex", gap: isMobile ? 8 : isDesktop ? 24 : 16, flexWrap: "wrap" }}>
+                      <p style={{ fontSize: isDesktop ? 12.5 : 11, color: "#555", fontFamily: "'JetBrains Mono', monospace" }}>📅 {exp.period}</p>
+                      <p style={{ fontSize: isDesktop ? 12.5 : 11, color: "#555", fontFamily: "'JetBrains Mono', monospace" }}>📍 {exp.location}</p>
                     </div>
                   </div>
                 </RevealSection>
@@ -484,34 +499,42 @@ export default function Portfolio() {
           {/* PROJECTS */}
           <section id="projects" style={{ padding: isMobile ? "64px 18px" : isDesktop ? "0 0 72px" : "80px 28px" }}>
             <SH title="Projects" />
-            <div style={{ display:"flex", flexDirection:"column", gap: isMobile?16:20 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: isMobile ? 16 : 20 }}>
               {portfolio.projects.map((proj, i) => (
                 <RevealSection key={i} delay={i * 100}>
                   <div style={{
-                    padding: cardPad, borderRadius:14,
-                    border:"1px solid #c8a96e15", borderLeft:"3px solid #c8a96e55",
-                    background:"#0f0f14",
+                    padding: cardPad, borderRadius: 14,
+                    border: "1px solid #c8a96e15", borderLeft: "3px solid #c8a96e55",
+                    background: "#0f0f14",
                   }}>
-                    {/* title row */}
-                    <div style={{ display:"flex", justifyContent:"space-between", alignItems:"flex-start", flexWrap:"wrap", gap:10, marginBottom:14 }}>
-                      <h3 style={{ fontFamily:"'Playfair Display', serif", fontSize: isMobile?17: isDesktop?22:19, color:"#f0ede8" }}>{proj.title}</h3>
-                      <div style={{ display:"flex", flexWrap:"wrap", gap:6 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 10, marginBottom: 14 }}>
+                      {proj.link ? (
+                        <a href={proj.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 17 : isDesktop ? 22 : 19, color: "#f0ede8" }}>
+                            {proj.title} <span style={{ fontSize: 14, color: "#c8a96e66" }}>↗</span>
+                          </h3>
+                        </a>
+                      ) : (
+                        <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 17 : isDesktop ? 22 : 19, color: "#f0ede8" }}>
+                          {proj.title}
+                        </h3>
+                      )}
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                         {proj.tags.map((tag, ti) => (
                           <span key={ti} style={{
-                            padding:"3px 10px", borderRadius:10,
-                            border:"1px solid #c8a96e33", background:"#c8a96e08",
-                            color:"#c8a96e", fontSize: isMobile?10:11,
-                            fontFamily:"'JetBrains Mono', monospace",
+                            padding: "3px 10px", borderRadius: 10,
+                            border: "1px solid #c8a96e33", background: "#c8a96e08",
+                            color: "#c8a96e", fontSize: isMobile ? 10 : 11,
+                            fontFamily: "'JetBrains Mono', monospace",
                           }}>{tag}</span>
                         ))}
                       </div>
                     </div>
-                    {/* highlights */}
-                    <ul style={{ listStyle:"none", display:"flex", flexDirection:"column", gap:8 }}>
+                    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 8 }}>
                       {proj.highlights.map((hl, hi) => (
-                        <li key={hi} style={{ display:"flex", gap:10, alignItems:"flex-start" }}>
-                          <span style={{ color:"#c8a96e", fontSize:12, marginTop:4, flexShrink:0 }}>▸</span>
-                          <p style={{ color:"#7a7570", fontSize: isMobile?13: isDesktop?14.5:13.5, lineHeight:1.7, fontFamily:"'Georgia', serif" }}>{hl}</p>
+                        <li key={hi} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                          <span style={{ color: "#c8a96e", fontSize: 12, marginTop: 4, flexShrink: 0 }}>▸</span>
+                          <p style={{ color: "#7a7570", fontSize: isMobile ? 13 : isDesktop ? 14.5 : 13.5, lineHeight: 1.7, fontFamily: "'Georgia', serif" }}>{hl}</p>
                         </li>
                       ))}
                     </ul>
@@ -524,15 +547,15 @@ export default function Portfolio() {
           {/* EDUCATION */}
           <section id="education" style={{ padding: isMobile ? "64px 18px" : isDesktop ? "0 0 72px" : "80px 28px" }}>
             <SH title="Education" />
-            <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
-              {portfolio.education.map((edu,i)=>(
-                <RevealSection key={i} delay={i*100}>
-                  <div style={{ padding:cardPad, borderRadius:14, border:"1px solid #c8a96e15", background:"#0f0f14", display:"flex", justifyContent:"space-between", alignItems: isMobile?"flex-start":"center", flexWrap:"wrap", gap:12 }}>
-                    <div style={{ flex:1, minWidth:0 }}>
-                      <h3 style={{ fontFamily:"'Playfair Display', serif", fontSize: isMobile?16: isDesktop?21:18, color:"#f0ede8", marginBottom:5 }}>{edu.institution}</h3>
-                      <p style={{ color:"#9a9590", fontSize: isMobile?13: isDesktop?15:14, fontFamily:"'Georgia', serif" }}>{edu.degree}</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+              {portfolio.education.map((edu, i) => (
+                <RevealSection key={i} delay={i * 100}>
+                  <div style={{ padding: cardPad, borderRadius: 14, border: "1px solid #c8a96e15", background: "#0f0f14", display: "flex", justifyContent: "space-between", alignItems: isMobile ? "flex-start" : "center", flexWrap: "wrap", gap: 12 }}>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: isMobile ? 16 : isDesktop ? 21 : 18, color: "#f0ede8", marginBottom: 5 }}>{edu.institution}</h3>
+                      <p style={{ color: "#9a9590", fontSize: isMobile ? 13 : isDesktop ? 15 : 14, fontFamily: "'Georgia', serif" }}>{edu.degree}</p>
                     </div>
-                    <span style={{ fontSize:11.5, color:"#c8a96e", fontFamily:"'JetBrains Mono', monospace", background:"#c8a96e10", padding:"4px 13px", borderRadius:12, flexShrink:0 }}>{edu.period}</span>
+                    <span style={{ fontSize: 11.5, color: "#c8a96e", fontFamily: "'JetBrains Mono', monospace", background: "#c8a96e10", padding: "4px 13px", borderRadius: 12, flexShrink: 0 }}>{edu.period}</span>
                   </div>
                 </RevealSection>
               ))}
@@ -544,78 +567,74 @@ export default function Portfolio() {
             <section id="skills" style={{ padding: isMobile ? "64px 18px" : "80px 28px" }}>
               <SH title="Skills" />
               <RevealSection delay={80}>
-                <div style={{ display:"flex", flexWrap:"wrap", gap: isMobile?8:10 }}>
-                  {portfolio.skills.map((skill,i)=>(
+                <div style={{ display: "flex", flexWrap: "wrap", gap: isMobile ? 8 : 10 }}>
+                  {portfolio.skills.map((skill, i) => (
                     <span key={i} className="skill-tag" style={{
-                      padding: isMobile?"8px 15px":"10px 20px", borderRadius:22,
-                      border:"1px solid #c8a96e33", background:"#c8a96e08",
-                      color:"#c8a96e", fontSize: isMobile?12:13,
-                      fontFamily:"'JetBrains Mono', monospace", cursor:"default",
+                      padding: isMobile ? "8px 15px" : "10px 20px", borderRadius: 22,
+                      border: "1px solid #c8a96e33", background: "#c8a96e08",
+                      color: "#c8a96e", fontSize: isMobile ? 12 : 13,
+                      fontFamily: "'JetBrains Mono', monospace", cursor: "default",
                     }}>{skill}</span>
                   ))}
                 </div>
               </RevealSection>
             </section>
           )}
-          {isDesktop && <div id="skills" style={{ height:0 }} />}
+          {isDesktop && <div id="skills" style={{ height: 0 }} />}
 
           {/* CERTIFICATIONS */}
           <section id="certifications" style={{ padding: isMobile ? "64px 18px" : isDesktop ? "0 0 72px" : "80px 28px" }}>
             <SH title="Certifications" />
             <div style={{
-              display:"grid",
+              display: "grid",
               gridTemplateColumns: isMobile ? "1fr" : isDesktop ? "repeat(2, 1fr)" : "repeat(auto-fill, minmax(280px, 1fr))",
-              gap: isMobile?10: isDesktop?18:14,
+              gap: isMobile ? 10 : isDesktop ? 18 : 14,
             }}>
-              {portfolio.certifications.map((cert,i)=>{
+              {portfolio.certifications.map((cert, i) => {
                 const isOpen = expandedCert === i;
                 return (
-                  <RevealSection key={i} delay={i*70}>
+                  <RevealSection key={i} delay={i * 70}>
                     <div
                       className={`cert-card${isOpen ? " expanded" : ""}`}
                       onClick={() => setExpandedCert(isOpen ? null : i)}
                       style={{
-                        padding: isMobile?"16px":"22px", borderRadius:14,
-                        border:"1px solid #c8a96e20", background:"#0f0f14",
-                        height:"100%", display:"flex", flexDirection:"column", justifyContent:"flex-start",
+                        padding: isMobile ? "16px" : "22px", borderRadius: 14,
+                        border: "1px solid #c8a96e20", background: "#0f0f14",
+                        height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-start",
                       }}
                     >
-                      {/* top row: dot + title + chevron */}
-                      <div style={{ display:"flex", alignItems:"flex-start", gap:12 }}>
-                        <div style={{ width:7, height:7, borderRadius:"50%", background:"#c8a96e", marginTop:7, flexShrink:0 }} />
-                        <div style={{ flex:1, minWidth:0 }}>
-                          <p style={{ color:"#e8e4de", fontSize: isMobile?13: isDesktop?15:14, lineHeight:1.55, fontFamily:"'Georgia', serif", fontWeight:600 }}>{cert.title}</p>
+                      <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                        <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#c8a96e", marginTop: 7, flexShrink: 0 }} />
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <p style={{ color: "#e8e4de", fontSize: isMobile ? 13 : isDesktop ? 15 : 14, lineHeight: 1.55, fontFamily: "'Georgia', serif", fontWeight: 600 }}>{cert.title}</p>
                         </div>
-                        <span className={`cert-toggle${isOpen ? " rotated" : ""}`} style={{ fontSize:11, color:"#c8a96e66", flexShrink:0, marginTop:2 }}>▼</span>
+                        <span className={`cert-toggle${isOpen ? " rotated" : ""}`} style={{ fontSize: 11, color: "#c8a96e66", flexShrink: 0, marginTop: 2 }}>▼</span>
                       </div>
 
-                      {/* issuer + date row */}
-                      <div style={{ display:"flex", alignItems:"center", gap: isMobile?10:16, marginTop:10, marginLeft:19, flexWrap:"wrap" }}>
-                        <span style={{ fontSize: isMobile?10.5:11.5, color:"#c8a96e", fontFamily:"'JetBrains Mono', monospace", background:"#c8a96e10", padding:"3px 10px", borderRadius:8 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 10 : 16, marginTop: 10, marginLeft: 19, flexWrap: "wrap" }}>
+                        <span style={{ fontSize: isMobile ? 10.5 : 11.5, color: "#c8a96e", fontFamily: "'JetBrains Mono', monospace", background: "#c8a96e10", padding: "3px 10px", borderRadius: 8 }}>
                           {cert.issuer}
                         </span>
-                        <span style={{ fontSize:10.5, color:"#444", fontFamily:"'JetBrains Mono', monospace" }}>📅 {cert.date}</span>
+                        <span style={{ fontSize: 10.5, color: "#444", fontFamily: "'JetBrains Mono', monospace" }}>📅 {cert.date}</span>
                       </div>
 
-                      {/* expandable: description + tags */}
-                      <div className={`cert-desc${isOpen ? " open" : ""}`} style={{ marginLeft:19 }}>
-                        <p style={{ color:"#7a7570", fontSize: isMobile?12:13, lineHeight:1.7, fontFamily:"'Georgia', serif", marginTop:12 }}>
+                      <div className={`cert-desc${isOpen ? " open" : ""}`} style={{ marginLeft: 19 }}>
+                        <p style={{ color: "#7a7570", fontSize: isMobile ? 12 : 13, lineHeight: 1.7, fontFamily: "'Georgia', serif", marginTop: 12 }}>
                           {cert.description}
                         </p>
-                        <div style={{ display:"flex", flexWrap:"wrap", gap:5, marginTop:10 }}>
-                          {cert.tags.map((tag,ti)=>(
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 5, marginTop: 10 }}>
+                          {cert.tags.map((tag, ti) => (
                             <span key={ti} style={{
-                              padding:"3px 9px", borderRadius:10,
-                              border:"1px solid #c8a96e22", background:"#c8a96e06",
-                              color:"#c8a96e88", fontSize:10, fontFamily:"'JetBrains Mono', monospace",
+                              padding: "3px 9px", borderRadius: 10,
+                              border: "1px solid #c8a96e22", background: "#c8a96e06",
+                              color: "#c8a96e88", fontSize: 10, fontFamily: "'JetBrains Mono', monospace",
                             }}>{tag}</span>
                           ))}
                         </div>
                       </div>
 
-                      {/* footer */}
-                      <div style={{ marginTop:14, paddingTop:10, borderTop:"1px solid #c8a96e10", textAlign:"right" }}>
-                        <span style={{ fontSize:9, color:"#3d3d3d", fontFamily:"'JetBrains Mono', monospace", letterSpacing:1 }}>VERIFIED ✓</span>
+                      <div style={{ marginTop: 14, paddingTop: 10, borderTop: "1px solid #c8a96e10", textAlign: "right" }}>
+                        <span style={{ fontSize: 9, color: "#3d3d3d", fontFamily: "'JetBrains Mono', monospace", letterSpacing: 1 }}>VERIFIED ✓</span>
                       </div>
                     </div>
                   </RevealSection>
@@ -625,69 +644,71 @@ export default function Portfolio() {
           </section>
 
           {/* CONTACT */}
-          <section id="contact" style={{ padding: isMobile ? "64px 18px 110px" : isDesktop ? "0 0 100px" : "80px 28px 100px", textAlign:"center" }}>
+          <section id="contact" style={{ padding: isMobile ? "64px 18px 110px" : isDesktop ? "0 0 100px" : "80px 28px 100px", textAlign: "center" }}>
             <SH title="Get In Touch" centered />
             <RevealSection delay={100}>
-              <p style={{ color:"#666", fontSize: isMobile?14: isDesktop?16:15, fontFamily:"'Georgia', serif", lineHeight:1.8, maxWidth: isDesktop?560:undefined, margin: isDesktop?"0 auto 34px":"0 0 34px" }}>
+              <p style={{ color: "#666", fontSize: isMobile ? 14 : isDesktop ? 16 : 15, fontFamily: "'Georgia', serif", lineHeight: 1.8, maxWidth: isDesktop ? 560 : undefined, margin: isDesktop ? "0 auto 34px" : "0 0 34px" }}>
                 I'm always open to new opportunities and collaborations.<br />Feel free to reach out anytime.
               </p>
-              <div style={{ display:"flex", justifyContent:"center", gap: isMobile?10:18, flexWrap:"wrap" }}>
+              <div style={{ display: "flex", justifyContent: "center", gap: isMobile ? 10 : 18, flexWrap: "wrap" }}>
                 <a href={`mailto:${portfolio.email}`} style={{
-                  padding: isMobile?"11px 24px": isDesktop?"13px 36px":"12px 30px", borderRadius:30,
-                  background:"linear-gradient(135deg,#c8a96e,#a07840)", color:"#0a0a0f",
-                  fontFamily:"'JetBrains Mono', monospace", fontSize: isMobile?12: isDesktop?14:13, fontWeight:500, cursor:"pointer",
-                  boxShadow:"0 4px 24px #c8a96e33", transition:"transform .2s, box-shadow .2s",
+                  padding: isMobile ? "11px 24px" : isDesktop ? "13px 36px" : "12px 30px", borderRadius: 30,
+                  background: "linear-gradient(135deg,#c8a96e,#a07840)", color: "#0a0a0f",
+                  fontFamily: "'JetBrains Mono', monospace", fontSize: isMobile ? 12 : isDesktop ? 14 : 13, fontWeight: 500, cursor: "pointer",
+                  boxShadow: "0 4px 24px #c8a96e33", transition: "transform .2s, box-shadow .2s",
                 }}
-                  onMouseEnter={e=>{e.currentTarget.style.transform="translateY(-2px)";e.currentTarget.style.boxShadow="0 8px 32px #c8a96e44"}}
-                  onMouseLeave={e=>{e.currentTarget.style.transform="translateY(0)";e.currentTarget.style.boxShadow="0 4px 24px #c8a96e33"}}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 32px #c8a96e44"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 24px #c8a96e33"; }}
                 >Email Me</a>
                 <a href={portfolio.linkedin} target="_blank" rel="noreferrer" style={{
-                  padding: isMobile?"11px 24px": isDesktop?"13px 36px":"12px 30px", borderRadius:30,
-                  border:"1px solid #c8a96e44", background:"transparent", color:"#c8a96e",
-                  fontFamily:"'JetBrains Mono', monospace", fontSize: isMobile?12: isDesktop?14:13, cursor:"pointer", transition:"all .3s",
+                  padding: isMobile ? "11px 24px" : isDesktop ? "13px 36px" : "12px 30px", borderRadius: 30,
+                  border: "1px solid #c8a96e44", background: "transparent", color: "#c8a96e",
+                  fontFamily: "'JetBrains Mono', monospace", fontSize: isMobile ? 12 : isDesktop ? 14 : 13, cursor: "pointer", transition: "all .3s",
                 }}
-                  onMouseEnter={e=>{e.currentTarget.style.background="#c8a96e15";e.currentTarget.style.borderColor="#c8a96e88"}}
-                  onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.borderColor="#c8a96e44"}}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#c8a96e15"; e.currentTarget.style.borderColor = "#c8a96e88"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "#c8a96e44"; }}
                 >LinkedIn ↗</a>
               </div>
             </RevealSection>
           </section>
+
         </main>
       </div>
 
       {/* FOOTER — mobile/tablet only */}
       {!isDesktop && (
         <footer style={{
-          borderTop:"1px solid #c8a96e10", padding:"22px 20px",
-          display:"flex", justifyContent: isMobile?"center":"space-between", alignItems:"center",
-          flexWrap:"wrap", gap:6, flexDirection: isMobile?"column":"row",
+          borderTop: "1px solid #c8a96e10", padding: "22px 20px",
+          display: "flex", justifyContent: isMobile ? "center" : "space-between", alignItems: "center",
+          flexWrap: "wrap", gap: 6, flexDirection: isMobile ? "column" : "row",
         }}>
-          <p style={{ fontSize:11, color:"#3a3a3a", fontFamily:"'JetBrains Mono', monospace" }}>© 2026 Subrat Tripathi</p>
-          <p style={{ fontSize:10, color:"#2a2a2a", fontFamily:"'JetBrains Mono', monospace" }}>Built with React · Designed with care</p>
+          <p style={{ fontSize: 11, color: "#3a3a3a", fontFamily: "'JetBrains Mono', monospace" }}>© 2026 Subrat Tripathi</p>
+          <p style={{ fontSize: 10, color: "#2a2a2a", fontFamily: "'JetBrains Mono', monospace" }}>Built with React · Designed with care</p>
         </footer>
       )}
 
       {/* MOBILE BOTTOM NAV */}
       {isMobile && (
         <nav style={{
-          position:"fixed", bottom:0, left:0, right:0, zIndex:100,
-          background:"rgba(10,10,15,0.9)", backdropFilter:"blur(18px)",
-          borderTop:"1px solid rgba(200,169,110,0.15)",
-          display:"flex", justifyContent:"space-around", alignItems:"center",
-          padding:"9px 2px 13px",
+          position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 100,
+          background: "rgba(10,10,15,0.9)", backdropFilter: "blur(18px)",
+          borderTop: "1px solid rgba(200,169,110,0.15)",
+          display: "flex", justifyContent: "space-around", alignItems: "center",
+          padding: "9px 2px 13px",
         }}>
-          {NAV.map(({id,icon})=>(
-            <button key={id} className="bnav-btn" onClick={()=>navTo(id)} style={{
-              background:"none", border:"none", cursor:"pointer",
-              display:"flex", flexDirection:"column", alignItems:"center", gap:2,
-              color: activeNav===id?"#c8a96e":"#555",
+          {NAV.map(({ id, icon }) => (
+            <button key={id} className="bnav-btn" onClick={() => navTo(id)} style={{
+              background: "none", border: "none", cursor: "pointer",
+              display: "flex", flexDirection: "column", alignItems: "center", gap: 2,
+              color: activeNav === id ? "#c8a96e" : "#555",
             }}>
-              <span style={{ fontSize:17 }}>{icon}</span>
-              <span style={{ fontSize:7.5, fontFamily:"'JetBrains Mono', monospace", letterSpacing:.4, textTransform:"capitalize" }}>{id.slice(0,4)}</span>
+              <span style={{ fontSize: 17 }}>{icon}</span>
+              <span style={{ fontSize: 7.5, fontFamily: "'JetBrains Mono', monospace", letterSpacing: .4, textTransform: "capitalize" }}>{id.slice(0, 4)}</span>
             </button>
           ))}
         </nav>
       )}
+
     </div>
   );
 }
